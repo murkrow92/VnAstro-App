@@ -14,9 +14,11 @@ import * as actions from './LoginActions';
 
 class LoginPage extends React.Component {
     render() {
-        const text = this.props.login.data.facebookLoggedIn
-            ? 'Tiếp tục với tư cách '
-            : 'Đăng nhập Facebook';
+        const { data } = this.props.login;
+        const text =
+            data.facebookLoggedIn && data.facebookFetched
+                ? 'Tiếp tục với tư cách ' + data.name
+                : 'Đăng nhập Facebook';
 
         return (
             <View style={styles.container}>
@@ -35,8 +37,14 @@ class LoginPage extends React.Component {
     }
 
     login() {
+        const { data } = this.props.login;
         const { actions } = this.props;
-        actions.loginFacebook();
+        const { navigate } = this.props.navigation;
+        if (data.facebookLoggedIn && data.facebookFetched) {
+            navigate('Main');
+        } else {
+            actions.loginFacebook();
+        }
     }
 
     componentDidUpdate() {
@@ -45,6 +53,11 @@ class LoginPage extends React.Component {
         if (data.facebookLoggedIn) {
             actions.fetchFaceook(data.token);
         }
+    }
+
+    componentDidMount() {
+        const { actions } = this.props;
+        actions.checkLoginFacebookStatus();
     }
 }
 

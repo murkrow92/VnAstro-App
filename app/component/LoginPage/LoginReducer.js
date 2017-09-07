@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import {
     ACTION_FETCH_FACEBOOK_SUCCESS,
+    ACTION_LOGIN_FACEBOOK_BEFORE,
     ACTION_LOGIN_FACEBOOK_SUCCESS,
 } from './LoginActions';
 
@@ -18,6 +19,13 @@ const loginReducer = (state = {}, action) => {
                 ...action.response,
                 facebookFetched: true,
             };
+        case ACTION_LOGIN_FACEBOOK_BEFORE:
+            return {
+                ...state,
+                ...action.response,
+                facebookLoggedIn: true,
+            };
+
         default:
             return state;
     }
