@@ -1,3 +1,5 @@
+import AsyncStorageHelper from '../helper/AsyncStorageHelper';
+
 const queryString = require('query-string');
 const lodash = require('lodash');
 
@@ -35,6 +37,11 @@ export class API {
 
     constructor() {
         this.API_ENDPOINT = API_ENDPOINT;
+    }
+
+    fetchFacebook(facebookToken) {
+        const url = `https://graph.facebook.com/me?access_token=${facebookToken}&fields=id,name,picture,friends`;
+        return getRequest(url);
     }
 
     fetchAstro(datetime) {

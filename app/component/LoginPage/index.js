@@ -1,10 +1,10 @@
 import React from 'react';
 import {
-    Text,
-    View,
-    StyleSheet,
     Image,
+    StyleSheet,
+    Text,
     TouchableHighlight,
+    View,
 } from 'react-native';
 import Logo from '../../../styles/images/vnastro.png';
 import colors from '../../../styles/colors';
@@ -14,6 +14,10 @@ import * as actions from './LoginActions';
 
 class LoginPage extends React.Component {
     render() {
+        const text = this.props.login.data.facebookLoggedIn
+            ? 'Tiếp tục với tư cách '
+            : 'Đăng nhập Facebook';
+
         return (
             <View style={styles.container}>
                 <Image style={styles.logo} source={Logo} />
@@ -24,7 +28,7 @@ class LoginPage extends React.Component {
                         this.login();
                     }}
                 >
-                    <Text style={styles.text}>Đăng nhập Facebook</Text>
+                    <Text style={styles.text}>{text}</Text>
                 </TouchableHighlight>
             </View>
         );
@@ -35,7 +39,13 @@ class LoginPage extends React.Component {
         actions.loginFacebook();
     }
 
-    componentDidMount() {}
+    componentDidUpdate() {
+        const { actions } = this.props;
+        const { data } = this.props.login;
+        if (data.facebookLoggedIn) {
+            actions.fetchFaceook(data.token);
+        }
+    }
 }
 
 const styles = StyleSheet.create({

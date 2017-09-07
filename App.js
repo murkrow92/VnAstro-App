@@ -27,7 +27,12 @@ export default class App extends React.Component {
         }
     }
 
-    componentWillMount() {
-        Font.loadAsync(fonts).then(this.setState({ fontLoaded: true }));
+    componentDidMount() {
+        this.loadFont().then(this.setState({ fontLoaded: true }));
     }
+
+    async loadFont() {
+        await Font.loadAsync(fonts);
+    }
+
 }
