@@ -2,7 +2,7 @@ import React from 'react';
 import configureStore from './app/redux/configureStore';
 import { Provider } from 'react-redux';
 import AppRoute from './app/route/AppRoute';
-import { Font } from 'expo';
+import { Font, AppLoading } from 'expo';
 import fonts from './styles/fonts';
 
 const store = configureStore();
@@ -23,11 +23,11 @@ export default class App extends React.Component {
                 </Provider>
             );
         } else {
-            return null;
+            return <AppLoading />;
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         Font.loadAsync(fonts).then(this.setState({ fontLoaded: true }));
     }
 }

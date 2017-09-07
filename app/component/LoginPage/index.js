@@ -8,12 +8,11 @@ import {
 } from 'react-native';
 import Logo from '../../../styles/images/vnastro.png';
 import colors from '../../../styles/colors';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from './LoginActions';
 
 class LoginPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <View style={styles.container}>
@@ -21,13 +20,22 @@ class LoginPage extends React.Component {
                 <TouchableHighlight
                     style={styles.box}
                     underlayColor={colors.FACEBOOK_WHITE_BLUE}
-                    onPress={() => {}}
+                    onPress={() => {
+                        this.login();
+                    }}
                 >
                     <Text style={styles.text}>Đăng nhập Facebook</Text>
                 </TouchableHighlight>
             </View>
         );
     }
+
+    login() {
+        const { actions } = this.props;
+        actions.loginFacebook();
+    }
+
+    componentDidMount() {}
 }
 
 const styles = StyleSheet.create({
@@ -53,8 +61,16 @@ const styles = StyleSheet.create({
         color: colors.BLACK,
         fontWeight: 'bold',
         fontSize: 14,
-        fontFamily: 'Arial',
+        fontFamily: 'HelveticaNeue-Bold',
     },
 });
 
-export default LoginPage;
+const mapStateToProps = state => ({
+    login: state.login,
+});
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(actions, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
