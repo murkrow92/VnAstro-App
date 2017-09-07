@@ -3,6 +3,7 @@ import {
     ACTION_FETCH_FACEBOOK_SUCCESS,
     ACTION_LOGIN_FACEBOOK_BEFORE,
     ACTION_LOGIN_FACEBOOK_SUCCESS,
+    ACTION_LOGIN_SYSTEM_SUCCESS,
 } from './LoginActions';
 
 const loginReducer = (state = {}, action) => {
@@ -24,6 +25,12 @@ const loginReducer = (state = {}, action) => {
                 ...state,
                 ...action.response,
                 facebookLoggedIn: true,
+            };
+        case ACTION_LOGIN_SYSTEM_SUCCESS:
+            return {
+                ...state,
+                token: action.response.access_token,
+                systemLoggedIn: true,
             };
 
         default:

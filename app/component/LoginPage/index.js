@@ -17,7 +17,7 @@ class LoginPage extends React.Component {
         const { data } = this.props.login;
         const text =
             data.facebookLoggedIn && data.facebookFetched
-                ? 'Tiếp tục với tư cách ' + data.name
+                ? 'Tiếp tục với ' + data.name
                 : 'Đăng nhập Facebook';
 
         return (
@@ -39,19 +39,25 @@ class LoginPage extends React.Component {
     login() {
         const { data } = this.props.login;
         const { actions } = this.props;
-        const { navigate } = this.props.navigation;
         if (data.facebookLoggedIn && data.facebookFetched) {
-            navigate('Main');
+
+            console.log(data);
+            actions.loginSystem(data.email, data.id);
         } else {
             actions.loginFacebook();
         }
     }
 
     componentDidUpdate() {
+        const { navigate } = this.props.navigation;
         const { actions } = this.props;
         const { data } = this.props.login;
         if (data.facebookLoggedIn) {
-            actions.fetchFaceook(data.token);
+            if (data.systemLoggedIn) {
+                navigate('Main');
+            } else {
+                actions.fetchFaceook(data.token);
+            }
         }
     }
 

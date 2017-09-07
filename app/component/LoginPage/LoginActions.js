@@ -2,7 +2,7 @@ import { API } from '../../libs/API';
 import { FACEBOOK_APP_ID } from '../../Environment';
 import AsyncStorageHelper from '../../helper/AsyncStorageHelper';
 
-export const ACTION_LOGIN_SUCCESS = 'action.com.login';
+export const ACTION_LOGIN_SYSTEM_SUCCESS = 'action.com.login';
 export const ACTION_FETCH_FACEBOOK_SUCCESS = 'action.fetch.facebook.success';
 export const ACTION_LOGIN_FACEBOOK_SUCCESS = 'action.facebook.login.success';
 export const ACTION_LOGIN_FACEBOOK_BEFORE = 'action.facebook.logged.in.before';
@@ -55,5 +55,24 @@ export const checkLoginFacebookStatus = () => (dispatch, getState) => {
 
 const loginFacebookBefore = response => ({
     type: ACTION_LOGIN_FACEBOOK_BEFORE,
+    response,
+});
+
+export const loginSystem = (email, facebookId) => (dispatch, getState) =>
+    api
+        .login(email, facebookId)
+        .then(
+            response => {
+                if (response.access_token) {
+                    API.ACCESS_TOKEN = response.access_token;
+                    dispatch(loginSystemSuccess(response));
+                }
+            },
+            error => console.log(error),
+        )
+        .catch(error => console.log(error));
+
+const loginSystemSuccess = response => ({
+    type: ACTION_LOGIN_SYSTEM_SUCCESS,
     response,
 });

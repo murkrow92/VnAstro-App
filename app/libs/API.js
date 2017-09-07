@@ -40,7 +40,7 @@ export class API {
     }
 
     fetchFacebook(facebookToken) {
-        const url = `https://graph.facebook.com/me?access_token=${facebookToken}&fields=id,name,picture,friends`;
+        const url = `https://graph.facebook.com/me?access_token=${facebookToken}&fields=id,name,picture,friends,email`;
         return getRequest(url);
     }
 
