@@ -40,8 +40,6 @@ class LoginPage extends React.Component {
         const { data } = this.props.login;
         const { actions } = this.props;
         if (data.facebookLoggedIn && data.facebookFetched) {
-
-            console.log(data);
             actions.loginSystem(data.email, data.id);
         } else {
             actions.loginFacebook();
@@ -53,8 +51,10 @@ class LoginPage extends React.Component {
         const { actions } = this.props;
         const { data } = this.props.login;
         if (data.facebookLoggedIn) {
-            if (data.systemLoggedIn) {
-                navigate('Main');
+            if (data.facebookFetched) {
+                if (data.systemLoggedIn) {
+                    navigate('Main');
+                }
             } else {
                 actions.fetchFaceook(data.token);
             }
