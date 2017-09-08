@@ -3,6 +3,9 @@
         "sdkVersion": "20.0.0",
         "name": "VnAstro",
         "icon": "./styles/images/vnastro_large.png",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "packagerOpts": {
+            "assetExts": ["ttf"]
+        }
     }
 }
