@@ -1,6 +1,6 @@
 import { StackNavigator } from 'react-navigation';
 import LoginPage from '../component/LoginPage/index';
-import MainPage from './MainPage/index';
+import SidebarNavigator from "./SidebarNavigator";
 
 const AppRoute = StackNavigator(
     {
@@ -8,7 +8,7 @@ const AppRoute = StackNavigator(
             screen: LoginPage,
         },
         Main: {
-            screen: MainPage,
+            screen: SidebarNavigator,
         },
     },
     {
