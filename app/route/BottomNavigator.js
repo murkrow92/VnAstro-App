@@ -3,6 +3,7 @@ import { Text } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../../styles/colors';
+import ProfilePage from '../component/ProfilePage/index';
 
 class HomePage extends React.Component {
     render() {
@@ -33,12 +34,6 @@ const notificationOptions = {
         ),
     },
 };
-
-class ProfilePage extends React.Component {
-    render() {
-        return <Text>ProfilePage</Text>;
-    }
-}
 
 const profileOptions = {
     screen: ProfilePage,

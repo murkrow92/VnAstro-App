@@ -1,10 +1,9 @@
-import AsyncStorageHelper from '../helper/AsyncStorageHelper';
+import { API_ENDPOINT } from '../Environment';
 
 const queryString = require('query-string');
 const lodash = require('lodash');
 
 const RESPONSE_CODE_SUCCESS = 200;
-const API_ENDPOINT = 'http://api.vnastro.com/1.0';
 
 const checkStatus = response => {
     let json = response.json();
