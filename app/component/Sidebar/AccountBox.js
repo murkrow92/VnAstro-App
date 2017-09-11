@@ -11,9 +11,6 @@ import { defaultFonts as fonts } from '../../../styles/fonts';
 export default class AccountBox extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            role: 'Học viên',
-        };
     }
 
     render() {
@@ -22,7 +19,7 @@ export default class AccountBox extends Component {
                 <Image source={this.props.picture} style={styles.icon} />
                 <View style={styles.contentContainer}>
                     <Text style={styles.title}>{this.props.name}</Text>
-                    <Text style={styles.content}>{this.state.role}</Text>
+                    <Text style={styles.content}>{this.props.role}</Text>
                 </View>
             </View>
         );

@@ -153,3 +153,8 @@ const viSignName = [
 ];
 
 export const mapViSignName = sign => viSignName[sign - 1];
+
+export const mapRole = roleId => {
+    const roles = ['Bình thường', 'Học viên', 'Giáo viên'];
+    return roles[roleId];
+};

@@ -11,6 +11,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from './SideBarAction';
 import { connect } from 'react-redux';
 import BlankProfile from '../../../styles/images/blank_profile.png';
+import { mapRole } from '../../libs/map';
 
 class Sidebar extends Component {
     constructor(props) {
@@ -20,10 +21,12 @@ class Sidebar extends Component {
     render() {
         const { bank, profile } = this.props;
         const { navigate } = this.props.content.navigation;
+        const role = mapRole(profile.data.user_role);
 
         return (
             <View style={styles.container}>
                 <AccountBox
+                    role={role}
                     picture={this.getPicture()}
                     name={profile.data.fullname}
                     navigate={navigate}
