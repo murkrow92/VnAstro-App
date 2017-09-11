@@ -66,7 +66,7 @@ class Sidebar extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: Platform.OS === 'ios' ? 30 : 0,
+        marginTop: Platform.OS === 'ios' ? 24 : 0,
     },
 });
 
