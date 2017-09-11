@@ -20,9 +20,9 @@ class AstroPage extends Component {
         return (
             <PageWrapper>
                 <TopNavigationBar
-                title={title}
-                onPress={() => navigate('DrawerOpen')}
-                rightButton={rightButton()}
+                    title={title}
+                    onPress={() => navigate('DrawerOpen')}
+                    rightButton={rightButton()}
                 />
                 <ScrollView
                     showsVerticalScrollIndicator={false}

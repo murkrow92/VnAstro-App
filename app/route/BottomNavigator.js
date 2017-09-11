@@ -5,6 +5,7 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../../styles/colors';
 import ProfilePage from '../component/ProfilePage/index';
 import AstroPage from '../component/AstroPage/index';
+import NotificationPage from '../component/NotificationPage/index';
 
 const homeOptions = {
     screen: AstroPage,
@@ -17,12 +18,6 @@ const homeOptions = {
         date: new Date().getTime(),
     },
 };
-
-class NotificationPage extends React.Component {
-    render() {
-        return <Text>NotificationPage</Text>;
-    }
-}
 
 const notificationOptions = {
     screen: NotificationPage,
