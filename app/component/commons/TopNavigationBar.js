@@ -6,8 +6,8 @@ import NavigationBar from 'react-native-navbar';
 import { View } from 'react-native';
 import React, { Component, PropTypes } from 'react';
 import colors from '../../../styles/colors';
-import LineDivider from './LineDivider';
-import IOButtonIcon from './IOButtonIcon';
+import LineDivider from "./LineDivider";
+import IOButtonIcon from "./IOButtonIcon";
 
 export default class TopNavigationBar extends Component {
     static propTypes = {

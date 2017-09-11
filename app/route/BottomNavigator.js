@@ -4,19 +4,17 @@ import { TabNavigator } from 'react-navigation';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../../styles/colors';
 import ProfilePage from '../component/ProfilePage/index';
-
-class HomePage extends React.Component {
-    render() {
-        return <Text>HomePage</Text>;
-    }
-}
+import AstroPage from '../component/AstroPage/index';
 
 const homeOptions = {
-    screen: HomePage,
+    screen: AstroPage,
     navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
             <Ionicons color={tintColor} name="ios-home" size={24} />
         ),
+    },
+    params: {
+        date: new Date().getTime(),
     },
 };
 

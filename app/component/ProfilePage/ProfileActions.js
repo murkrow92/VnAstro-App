@@ -15,7 +15,6 @@ const api = new API();
 export const saveProfileAsync = profile => (dispatch, getState) =>
     api.saveProfile(profile).then(
         response => {
-            console.log(response);
             doSaveProfile(response, dispatch);
         },
         error => {
@@ -26,9 +25,8 @@ export const saveProfileAsync = profile => (dispatch, getState) =>
 
 const doSaveProfile = (response, dispatch) => {
     const profile = response.data;
-    AsyncStorageHelper.saveUserProfile(profile)
-        .then(dispatch(saveSuccess(profile)))
-        .catch(error => console.log(error));
+    AsyncStorageHelper.saveUserProfile(profile);
+    dispatch(saveSuccess(profile));
 };
 
 const saveSuccess = profile => ({
@@ -39,8 +37,7 @@ const saveSuccess = profile => ({
 export const fetchUserProfileAsync = () => (dispatch, getState) =>
     api.fetchUserProfile().then(
         response => {
-            const profile = response.data;
-            dispatch(fetchProfileSuccess(profile));
+            dispatch(fetchProfileSuccess(response.data));
         },
         error => {
             console.log(error);
