@@ -3,11 +3,11 @@
  */
 
 import NavigationBar from 'react-native-navbar';
-import { View } from 'react-native';
+import { View, Platform } from 'react-native';
 import React, { Component, PropTypes } from 'react';
 import colors from '../../../styles/colors';
-import LineDivider from "./LineDivider";
-import IOButtonIcon from "./IOButtonIcon";
+import LineDivider from './LineDivider';
+import IOButtonIcon from './IOButtonIcon';
 
 export default class TopNavigationBar extends Component {
     static propTypes = {
@@ -50,6 +50,8 @@ const createButton = (icon, onPress) => {
 
 const styles = {
     container: {
+        marginBottom: Platform.OS === 'ios' ? 20 : 0,
+        flexDirection: 'column',
         height: 44,
     },
 };

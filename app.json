@@ -1,5 +1,8 @@
 {
     "expo": {
+        "androidStatusBar": {
+            "backgroundColor": "#fffff"
+        },
         "sdkVersion": "20.0.0",
         "name": "VnAstro",
         "icon": "./styles/images/vnastro_large.png",

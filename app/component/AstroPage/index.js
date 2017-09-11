@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './AstroActions';
-import { ScrollView } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import TopNavigationBar from '../commons/TopNavigationBar';
 import ListAstroObject from './ListAstroObject';
 import PageWrapper from '../commons/PageWrapper';
@@ -16,15 +16,18 @@ class AstroPage extends Component {
     render() {
         const { astro } = this.props;
         const { navigate } = this.props.navigation;
-        let title = 'Toạ độ';
+        let title = 'Bầu trời lúc này';
         return (
             <PageWrapper>
                 <TopNavigationBar
-                    title={title}
-                    onPress={() => navigate('DrawerOpen')}
-                    rightButton={rightButton()}
+                title={title}
+                onPress={() => navigate('DrawerOpen')}
+                rightButton={rightButton()}
                 />
-                <ScrollView>
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    style={styles.scrollview}
+                >
                     {this.renderList(astro.planet, navigate)}
                 </ScrollView>
             </PageWrapper>
@@ -68,6 +71,12 @@ const getItems = planet => {
 const rightButton = () => {
     return <IOButtonIcon name="ios-pie" onPress={() => {}} />;
 };
+
+const styles = StyleSheet.create({
+    scrollView: {
+        flex: 1,
+    },
+});
 
 const mapStateToProps = state => ({
     astro: state.astro,
