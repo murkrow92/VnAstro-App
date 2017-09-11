@@ -2,6 +2,7 @@ const fonts = {
     'HelveticaNeue-Medium': require('../assests/fonts/HelveticaNeue-Medium.otf'),
     'HelveticaNeue-Bold': require('../assests/fonts/HelveticaNeue-Bold.otf'),
     'OpenSans-Regular': require('../assests/fonts/OpenSans-Regular.ttf'),
+    Arial: require('../assests/fonts/arial.ttf'),
 };
 
 export const defaultFonts = {

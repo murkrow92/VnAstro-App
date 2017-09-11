@@ -45,7 +45,11 @@ export default class DrawerItem extends Component {
         const { button, onPress } = this.props;
         if (button) {
             return (
-                <ButtonIcon color="#999999" icon={button} onPress={onPress} />
+                <IOButtonIcon
+                    color={colors.BLUE}
+                    name={button}
+                    onPress={onPress}
+                />
             );
         } else {
             return (

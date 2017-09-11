@@ -1,11 +1,11 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../../styles/colors';
 import ProfilePage from '../component/ProfilePage/index';
 import AstroPage from '../component/AstroPage/index';
 import NotificationPage from '../component/NotificationPage/index';
+import TransactionPage from '../component/TransactionPage/index';
 
 const homeOptions = {
     screen: AstroPage,
@@ -41,14 +41,8 @@ const profileOptions = {
     },
 };
 
-class AccountPage extends React.Component {
-    render() {
-        return <Text>AccountPage</Text>;
-    }
-}
-
-const accountOptions = {
-    screen: AccountPage,
+const transactionOptions = {
+    screen: TransactionPage,
     navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
             <Ionicons color={tintColor} name="ios-cash-outline" size={24} />
@@ -78,7 +72,7 @@ const BottomNavigator = TabNavigator(
         Home: homeOptions,
         Notification: notificationOptions,
         Profile: profileOptions,
-        Account: accountOptions,
+        Transaction: transactionOptions,
     },
     {
         tabBarPosition: 'bottom',

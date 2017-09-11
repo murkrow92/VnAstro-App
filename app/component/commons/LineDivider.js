@@ -12,7 +12,7 @@ export default class LineDivider extends Component {
     };
 
     render() {
-        let bgColor = this.props.color ? this.props.color : colors.BORDER_GREY;
+        const bgColor = this.props.color ? this.props.color : colors.BORDER_GREY;
         return (
             <View
                 style={{

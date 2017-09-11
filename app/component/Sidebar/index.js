@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import AccountBox from './AccountBox';
 import DrawerItem from './DrawerItem';
 import DrawerTitle from './DrawerTitle';
@@ -18,7 +18,7 @@ class Sidebar extends Component {
     }
 
     render() {
-        const { sidebar, bank, profile } = this.props;
+        const { bank, profile } = this.props;
         const { navigate } = this.props.content.navigation;
 
         return (
@@ -35,7 +35,7 @@ class Sidebar extends Component {
                 />
                 <DrawerItem
                     onPress={() => navigate('Chat')}
-                    button="plus-circled"
+                    button="ios-add-outline"
                     title="Tạo câu hỏi"
                 />
                 <DrawerItem
@@ -65,7 +65,9 @@ class Sidebar extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {},
+    container: {
+        marginTop: Platform.OS === 'ios' ? 30 : 0,
+    },
 });
 
 const mapStateToProps = state => ({
