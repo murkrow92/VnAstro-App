@@ -6,6 +6,7 @@ import astroReducer from '../component/AstroPage/AstroReducer';
 import notificationReducer from '../component/NotificationPage/NotificationReducer';
 import sidebarReducer from '../component/Sidebar/SideBarReducer';
 import bankReducer from '../component/TransactionPage/BankReducer';
+import detailReducer from '../component/ComboDetailPage/DetailReducer';
 
 export default combineReducers({
     app: appReducer,
@@ -15,4 +16,5 @@ export default combineReducers({
     notifications: notificationReducer,
     sidebar: sidebarReducer,
     bank: bankReducer,
+    detail: detailReducer,
 });

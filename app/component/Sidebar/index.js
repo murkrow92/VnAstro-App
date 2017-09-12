@@ -38,9 +38,17 @@ class Sidebar extends Component {
                 />
                 <DrawerItem
                     onPress={() => navigate('Chat')}
-                    button="ios-add-outline"
+                    button="ios-add-circle-outline"
                     title="Tạo câu hỏi"
                 />
+                {profile.data.user_role === 2 ? (
+                    <DrawerItem
+                        button="ios-information-circle"
+                        onPress={() => navigate('Conversation')}
+                        title="Trả lời câu hỏi"
+                    />
+                ) : null}
+
                 <DrawerItem
                     onPress={() => navigate('Conversation')}
                     title="Danh sách câu hỏi"
