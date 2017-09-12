@@ -15,6 +15,7 @@ import { APP_MARGIN } from '../../../styles/dimens';
 import colors from '../../../styles/colors';
 import { defaultFonts as fonts } from '../../../styles/fonts';
 import lodash from 'lodash';
+import IOButtonIcon from '../commons/IOButtonIcon';
 
 class DetailPage extends Component {
     constructor(props) {
@@ -29,9 +30,15 @@ class DetailPage extends Component {
         return (
             <PageWrapper>
                 <TopNavigationBar
+                    leftButton={
+                        <IOButtonIcon
+                            name="md-arrow-back"
+                            onPress={() => navigate('Bottom')}
+                        />
+                    }
                     title="Trả lời"
-                    onPress={() => navigate('DrawerOpen')}
                     rightButton={rightButton()}
+                    onPress={() => {}}
                 />
                 <View style={styles.container}>
                     {renderQuestion(params)}
