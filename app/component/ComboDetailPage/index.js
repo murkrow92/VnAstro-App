@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ComboBox from './ComboBox';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import QuestionBox from './QuestionBox';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -40,12 +40,12 @@ class DetailPage extends Component {
                     rightButton={rightButton()}
                     onPress={() => {}}
                 />
-                <View style={styles.container}>
+                <ScrollView style={styles.container}>
                     {renderQuestion(params)}
                     <View style={styles.answerBox}>
                         <Text style={styles.answer}>{answer}</Text>
                     </View>
-                </View>
+                </ScrollView>
             </PageWrapper>
         );
     }

@@ -7,6 +7,9 @@ import notificationReducer from '../component/NotificationPage/NotificationReduc
 import sidebarReducer from '../component/Sidebar/SideBarReducer';
 import bankReducer from '../component/TransactionPage/BankReducer';
 import detailReducer from '../component/ComboDetailPage/DetailReducer';
+import addFriendReducer from "../component/FriendPage/AddFriendPage/AddFriendReducer";
+import friendReducer from "../component/FriendPage/FriendRecuder";
+
 
 export default combineReducers({
     app: appReducer,
@@ -17,4 +20,6 @@ export default combineReducers({
     sidebar: sidebarReducer,
     bank: bankReducer,
     detail: detailReducer,
+    friend: friendReducer,
+    addFriend: addFriendReducer,
 });
