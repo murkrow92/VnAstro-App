@@ -4,11 +4,11 @@
 
 import React, { Component, PropTypes } from 'react';
 import {
-    View,
+    Platform,
     StyleSheet,
     TextInput,
-    Platform,
     TouchableHighlight,
+    View,
 } from 'react-native';
 import IOButtonIcon from './IOButtonIcon';
 import colors from '../../../styles/colors';
@@ -35,22 +35,20 @@ export default class SearchBox extends Component {
     }
 
     renderButtonClose(text) {
-        if (text !== '') {
-            return (
-                <TouchableHighlight
-                    underlayColor="transparent"
-                    onPress={() => this.props.onChangeText('')}
-                >
-                    <View style={styles.closeBackground}>
-                        <IOButtonIcon
-                            color={colors.DARKER_GREY}
-                            name="ios-close"
-                            onPress={() => this.props.onChangeText('')}
-                        />
-                    </View>
-                </TouchableHighlight>
-            );
-        }
+        return text !== '' ? null : (
+            <TouchableHighlight
+                underlayColor="transparent"
+                onPress={() => this.props.onChangeText('')}
+            >
+                <View style={styles.closeBackground}>
+                    <IOButtonIcon
+                        color={colors.DARKER_GREY}
+                        name="ios-close"
+                        onPress={() => this.props.onChangeText('')}
+                    />
+                </View>
+            </TouchableHighlight>
+        );
     }
 }
 
