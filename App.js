@@ -33,7 +33,9 @@ export default class App extends React.Component {
     }
 
     componentDidMount() {
-        this.loadFont();
+        this.loadFont().then(result => {
+            console.log('font loaded: ' + result);
+        });
     }
 
     async loadFont() {
